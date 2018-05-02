@@ -5,8 +5,9 @@ plugins {
     id 'maven'
 }
 
-group = 'com.github.jitpack'
-
+group = 'org.jfrog.example.gradle'
+version = '1.1'
+  
 sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
 
