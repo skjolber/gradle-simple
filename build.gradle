@@ -25,21 +25,5 @@ dependencies {
 
 artifactory {
     publish {
-        repository {
-            repoKey = 'libs-snapshot-local'
-            maven = true
-        }       
-        defaults {
-            publications ('mavenJava')
-        }
-    }
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            artifact(file("$rootDir/gradle.properties"))
-        }
     }
 }
