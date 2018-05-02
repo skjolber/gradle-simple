@@ -1,5 +1,9 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+
+plugins {
+    id 'com.jfrog.artifactory' version '4.7.1'
+    id 'java'
+    id 'maven'
+}
 
 group = 'com.github.jitpack'
 
