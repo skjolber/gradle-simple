@@ -8,15 +8,14 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.jitpack'
+group = 'com.github.skjolber'
 version = currentVersion
 
-sourceCompatibility = 1.8 // java 8
+sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-
 repositories {
-  mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
@@ -25,5 +24,14 @@ dependencies {
 
 artifactory {
     publish {
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact(file("$rootDir/gradle.properties"))
+        }
     }
 }
