@@ -1,5 +1,6 @@
 
 plugins {
+    id 'com.jfrog.artifactory' version '4.7.1'
     id 'java-library'
     id 'maven'
 }
@@ -34,17 +35,3 @@ artifacts {
     archives javadocJar
 }
 
-// To specify a license in the pom:
-install {
-  repositories.mavenInstaller {
-    pom.project {
-      licenses {
-        license {
-          name 'The Apache Software License, Version 2.0'
-          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          distribution 'repo'
-        }
-      }
-    }
-  }
-}
