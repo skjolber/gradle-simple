@@ -1,4 +1,7 @@
 
+
+// https://dzone.com/articles/publish-jar-artifact-using
+
 plugins {
     id 'com.jfrog.artifactory' version '4.7.1'
     id 'java'
@@ -33,6 +36,18 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
+}
+
+artifactory {
+    publish {
+        repository {
+            repoKey = 'libs-snapshot-local'
+            maven = true
+        }       
+        defaults {
+            publications ('mavenJava')
+        }
+    }
 }
 
 publishing {
