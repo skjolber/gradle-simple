@@ -28,6 +28,9 @@ artifactory {
             repoKey = 'libs-snapshot-local'
             maven = true
         }       
+        defaults {
+            publications ('mavenJava')
+        }
     }
 }
 
