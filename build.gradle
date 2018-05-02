@@ -38,7 +38,7 @@ artifacts {
 artifactory {
 	publish {
 		repository {
-			repoKey = 'libs-snapshot-local'
+			repoKey = 'libs-release-local'
 			maven = true
 		}
 		defaults {
