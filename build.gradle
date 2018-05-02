@@ -4,7 +4,7 @@
 
 plugins {
     id 'com.jfrog.artifactory' version '4.7.1'
-    id 'java'
+    id 'java-library'
     id 'maven-publish'
 }
 
