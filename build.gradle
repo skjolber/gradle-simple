@@ -1,7 +1,7 @@
 
 plugins {
     id 'com.jfrog.artifactory' version '4.7.1'
-    id 'java'
+    id 'java-library'
     id 'maven'
 }
 
@@ -10,7 +10,6 @@ group = 'com.github.jitpack'
 sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
 
-version = myVersion
 
 repositories {
   mavenCentral()
