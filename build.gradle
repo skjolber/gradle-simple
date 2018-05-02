@@ -24,6 +24,10 @@ dependencies {
 
 artifactory {
     publish {
+        repository {
+            repoKey = 'libs-snapshot-local'
+            maven = true
+        }       
     }
 }
 
