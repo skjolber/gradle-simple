@@ -3,6 +3,7 @@
 plugins {
 	id 'com.jfrog.artifactory' version '4.7.1'
 	id 'java-library'
+	id 'maven'
 	id 'maven-publish'
 }
 
@@ -17,7 +18,7 @@ repositories {
 }
 
 dependencies {
-	compile 'com.google.guava:guava:18.0'
+	compile 'com.google.guava:guava:20.0'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
@@ -47,11 +48,32 @@ artifactory {
 	}
 }
 
+task createPom {
+    outputs.file "${buildDir}/pom.xml"
+    inputs.property('group', project.group)
+    inputs.property('name', project.name)
+    inputs.property('pomVersion', version)
+
+    doLast {
+        pom {
+            project {
+                groupId inputs.properties['group']
+                artifactId inputs.properties['name']
+                version inputs.properties['pomVersion']
+            }
+         }.writeTo("${buildDir}/${project.name}-${project.version}.pom")
+    }
+}
+
+artifactoryPublish {
+    dependsOn createPom
+}
+
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			from components.java
-			artifact(file("$rootDir/gradle.properties"))
+			artifact(file("${buildDir}/${project.name}-${project.version}.pom"))
 			artifact sourcesJar
 			artifact javadocJar
 		}
