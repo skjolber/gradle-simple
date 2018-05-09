@@ -48,6 +48,7 @@ artifactory {
 	}
 }
 
+/*
 task createPom {
     outputs.file "${buildDir}/pom.xml"
     inputs.property('group', project.group)
@@ -68,12 +69,13 @@ task createPom {
 artifactoryPublish {
     dependsOn createPom
 }
+*/
 
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			from components.java
-			artifact(file("${buildDir}/${project.name}-${project.version}.pom"))
+			//artifact(file("${buildDir}/${project.name}-${project.version}.pom"))
 			artifact sourcesJar
 			artifact javadocJar
 		}
