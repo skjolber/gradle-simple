@@ -1,7 +1,7 @@
 // https://dzone.com/articles/publish-jar-artifact-using
 
 plugins {
-	id 'com.jfrog.artifactory' version '4.7.1'
+	id 'com.jfrog.artifactory' version '4.7.4'
 	id 'java-library'
 	id 'maven'
 	id 'maven-publish'
@@ -39,7 +39,7 @@ artifacts {
 artifactory {
 	publish {
 		repository {
-			repoKey = 'libs-release-local'
+			repoKey = 'libs-snapshot-local'
 			maven = true
 		}
 		defaults {
